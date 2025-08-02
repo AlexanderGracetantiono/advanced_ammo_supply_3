@@ -21,6 +21,16 @@ Techs
 		Prerequisites = [ cosmoteer.factory_he, aephiex.technology.storage_ammo ]
 	}
 	{
+		ID = aephiex.technology.storage_missile_thermal
+		NameKey = &<terran/storage_missile_thermal/storage_missile_thermal.rules>/Part/NameKey
+		DescriptionKey = &<terran/storage_missile_thermal/storage_missile_thermal.rules>/Part/DescriptionKey
+		Icon = &<terran/storage_missile_thermal/storage_missile_thermal.rules>/Part/EditorIcon
+		EditorGroup = &<terran/storage_missile_thermal/storage_missile_thermal.rules>/Part/EditorGroup
+		PartsUnlocked = [ &<terran/storage_missile_thermal/storage_missile_thermal.rules>/Part/ID ]
+		Cost = 3000
+		Prerequisites = [ cosmoteer.factory_he, aephiex.technology.storage_ammo ]
+	}
+	{
 		ID = aephiex.technology.storage_missile_emp
 		NameKey = &<terran/storage_missile_emp/storage_missile_emp.rules>/Part/NameKey
 		DescriptionKey = &<terran/storage_missile_emp/storage_missile_emp.rules>/Part/DescriptionKey

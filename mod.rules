@@ -12,39 +12,15 @@ Description = "FORKED version of aephiex.advanced_ammo_storage_and_supply\n\n"\
     "[h1]Advanced Ammo Storage & Supply 2 Extended Tech Tree Version[/h1]\n\n"\
     "[b]Version:[/b] 3.0.0\n"\
     "[b]Author:[/b] Axeside\n"\
-    "[b]Compatible Game Versions:[/b] 0.28.1 - 0.28.2\n"\
-    "[b][url=https://github.com/AlexanderGracetantiono/advanced_ammo_supply_3]GitHub Repository[/url][/b]\n\n"\
+    "[b]Compatible Game Versions:[/b] 0.30.0\n"\
     "[hr][/hr]"\
     "[h2]Overview[/h2]\n\n"\
     "This is a forked and updated version of Aephiex's original Advanced Ammo Storage & Supply mod.\n"\
-    "The original mod is no longer maintained, and this version expands its functionality with additional overrides, added compatibility patches, and improved ammo logistics through sideways movement.\n\n"\
+    "This mod merge supply, and ammo Belt mod, added CN translate\n\n"\
     "[hr][/hr]"\
-    "[h2]New Features and Improvements[/h2]\n\n"\
-	"[h3]Chaingun Ammo Support[/h3]\n"\
-	"- Chaingun and chaingun magazines now accept ammo transfer from belts\n"\
-	"[h3]Tech Tree Mod Ammo Support[/h3]\n"\
-	"- Tech Tree special ammo can share belts with regular ammo!\n"\
-	"[h3]Factory auto transfer[/h3]\n"\
-	"- Storage pulls from factories behind and to the sides\n"\
-    "[h3]Compatibility with Additional Mods[/h3]\n"\
-    "- [b]More Cannons Mod:[/b] EMP and Nuke cannons now supported\n"\
-    "- [b]Star Wars Mod:[/b] Supports mini-cluster, concussion, intruder, and hex missiles\n"\
-    "- [b]Missile Mods:[/b] Compatible with Galactic Allegiance Missile Silos, Standalone Missile Silos, Jani’s Shipyard, and Advanced Missile Launcher\n\n"\
-    "[h3]New Ammo Transfer System[/h3]\n"\
-    "- Ammunition can transfer [b]left, right, or forward[/b]\n"\
-    "[h3]Improved Storage Durability[/h3]\n"\
-    "- Armored storage bays provide additional protection\n"\
-    "- No roof access, maintaining balance and preventing excessive ammo stacking\n\n"\
 	 "[h3]Support Meltdown 0.30 update[/h3]\n"\
     "- Support Meltdown\n\n"\
-    "[hr][/hr]"\
-    "[h2]Technical Details[/h2]\n\n"\
-    "This version mostly replaces and beta-maxes mod overrides per component by pushing to custom and vanilla storages\n"\
-	"- For example, HE Missile storage will attempt to transfer to HEMissileStorage__Aephiex components, CombinedMissileStorage, and MissileStorages\n"\
-    "- [b]This means most mods now needs no special updates or tweaks to be compatible[/b]\n"\
-    "[hr][/hr]"\
     "[h2]Feedback and Support[/h2]\n\n"\
-    "For bug reports, feature requests, or contributions, visit the [b][url=https://github.com/AlexanderGracetantiono/advanced_ammo_supply_3]GitHub Repository[/url][/b].\n"\
     "Discussion and updates will be shared there. Maybe.\n\n"
 
 StringsFolder = "strings"
@@ -62,6 +38,7 @@ Actions
 		[			
 			&<terran/storage_ammo/storage_ammo.rules>/Part
 			&<terran/storage_missile_he/storage_missile_he.rules>/Part
+			&<terran/storage_missile_thermal/storage_missile_thermal.rules>/Part
 			&<terran/storage_missile_emp/storage_missile_emp.rules>/Part
 			&<terran/storage_missile_nuke/storage_missile_nuke.rules>/Part
 			&<terran/storage_mine/storage_mine.rules>/Part
