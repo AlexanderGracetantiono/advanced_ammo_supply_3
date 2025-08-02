@@ -1,0 +1,85 @@
+__Name = "Simplified Chinese"
+__DebugOnly = false
+
+Parts
+{
+	AephiexStorageAmmo = "弹药库"
+	AephiexStorageAmmoIcon = &AephiexStorageAmmo
+	AephiexStorageAmmoDesc = "专门化的弹药库，覆盖装甲因此更加坚韧。它也会将储存的物品输送给前方的火炮或弹药库。"
+
+	AephiexStorageMine = "地雷部件库"
+	AephiexStorageMineIcon = &AephiexStorageMine
+	AephiexStorageMineDesc = "专门化的地雷部件库，覆盖装甲因此更加坚韧。它也会将储存的物品输送给前方的发射器或地雷部件库。"
+
+	AephiexStorageMissileEMP = "电磁脉冲导弹部件库"
+	AephiexStorageMissileEMPIcon = &AephiexStorageMissileEMP
+	AephiexStorageMissileEMPDesc = "专门化的电磁脉冲导弹部件库，覆盖装甲因此更加坚韧。它也会将储存的物品输送给前方的发射器或电磁脉冲导弹部件库。"
+
+	AephiexStorageMissileHE = "高爆导弹部件库"
+	AephiexStorageMissileHEIcon = &AephiexStorageMissileHE
+	AephiexStorageMissileHEDesc = "专门化的高爆导弹部件库，覆盖装甲因此更加坚韧。它也会将储存的物品输送给前方的发射器或高爆导弹部件库。"
+
+	AephiexStorageMissileNuke = "核导弹部件库"
+	AephiexStorageMissileNukeIcon = &AephiexStorageMissileNuke
+	AephiexStorageMissileNukeDesc = "专门化的核导弹部件库，覆盖装甲因此更加坚韧。它也会将储存的物品输送给前方的发射器或核导弹部件库。"
+
+	FemboyConveyorCarbon = "碳传送带"
+	FemboyConveyorCarbonIcon = &FemboyConveyorCarbon
+	FemboyConveyorCarbonDesc = "一个指定的碳存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的工厂或碳传送带。"
+
+	FemboyConveyorCoils = "线圈传送带"
+	FemboyConveyorCoilsIcon = &FemboyConveyorCoils
+	FemboyConveyorCoilsDesc = "一个指定的线圈存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的工厂或线圈传送带。"
+
+	FemboyConveyorCopper = "铜传送带"
+	FemboyConveyorCopperIcon = &FemboyConveyorCopper
+	FemboyConveyorCopperDesc = "一个指定的铜存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的工厂或铜传送带。"
+
+	FemboyConveyorDiamond = "钻石传送带"
+	FemboyConveyorDiamondIcon = &FemboyConveyorDiamond
+	FemboyConveyorDiamondDesc = "一个指定的钻石存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的钻石传送带。"
+
+	FemboyConveyorEnrichedUranium = "浓缩铀传送带"
+	FemboyConveyorEnrichedUraniumIcon = &FemboyConveyorEnrichedUranium
+	FemboyConveyorEnrichedUraniumDesc = "一个指定的浓缩铀存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的浓缩铀传送带。"
+
+	FemboyConveyorGold = "金传送带"
+	FemboyConveyorGoldIcon = &FemboyConveyorGold
+	FemboyConveyorGoldDesc = "一个指定的金存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的工厂或金传送带。"
+
+	FemboyConveyorHypercoil = "超级线圈传送带"
+	FemboyConveyorHypercoilIcon = &FemboyConveyorHypercoil
+	FemboyConveyorHypercoilDesc = "一个指定的超级线圈存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的超级线圈传送带。"
+
+	FemboyConveyorHyperium = "超能元素传送带"
+	FemboyConveyorHyperiumIcon = &FemboyConveyorHyperium
+	FemboyConveyorHyperiumDesc = "一个指定的超能元素存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的超能元素传送带。"
+
+	FemboyConveyorIron = "铁传送带"
+	FemboyConveyorIronIcon = &FemboyConveyorIron
+	FemboyConveyorIronDesc = "一个指定的铁存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的工厂或铁传送带。"
+
+	FemboyConveyorProcessor = "处理器传送带"
+	FemboyConveyorProcessorIcon = &FemboyConveyorProcessor
+	FemboyConveyorProcessorDesc = "一个指定的处理器存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的处理器传送带。"
+
+	FemboyConveyorSteel = "钢传送带"
+	FemboyConveyorSteelIcon = &FemboyConveyorSteel
+	FemboyConveyorSteelDesc = "一个指定的钢存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的钢传送带。"
+
+	FemboyConveyorSulfur = "硫磺传送带"
+	FemboyConveyorSulfurIcon = &FemboyConveyorSulfur
+	FemboyConveyorSulfurDesc = "一个指定的硫磺存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的工厂或硫磺传送带。"
+
+	FemboyConveyorTristeel = "三合金传送带"
+	FemboyConveyorTristeelIcon = &FemboyConveyorTristeel
+	FemboyConveyorTristeelDesc = "一个指定的三合金存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的三合金传送带。"
+
+	FemboyConveyorTritanium = "三钛合金传送带"
+	FemboyConveyorTritaniumIcon = &FemboyConveyorTritanium
+	FemboyConveyorTritaniumDesc = "一个指定的三钛合金存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的工厂或三钛合金传送带。"
+
+	FemboyConveyorUranium = "铀传送带"
+	FemboyConveyorUraniumIcon = &FemboyConveyorUranium
+	FemboyConveyorUraniumDesc = "一个指定的铀存储装置，具备装甲保护且更加耐用。它还会将其内容传送到前方的工厂或铀传送带。"
+}

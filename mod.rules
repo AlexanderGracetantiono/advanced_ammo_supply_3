@@ -1,0 +1,543 @@
+
+ID = axeside.advanced_ammo_storage_and_supply3_ett
+Name = "Advanced Ammo Storage ＆ Supply V3 Meltdown Edition"
+Version = 3.0.0
+CompatibleGameVersions = ["0.30.0"]
+ModifiesMultiplayer = true
+Author = "Axeside"
+Logo = "thumbnail.png"
+
+Description = "FORKED version of aephiex.advanced_ammo_storage_and_supply\n\n"\
+	"[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2918609970&searchtext=advanced+ammo]Original Mod By Aephiex Here[/url]\n\n"\
+    "[h1]Advanced Ammo Storage & Supply 2 Extended Tech Tree Version[/h1]\n\n"\
+    "[b]Version:[/b] 3.0.0\n"\
+    "[b]Author:[/b] Axeside\n"\
+    "[b]Compatible Game Versions:[/b] 0.28.1 - 0.28.2\n"\
+    "[b][url=https://github.com/AlexanderGracetantiono/advanced_ammo_supply_3]GitHub Repository[/url][/b]\n\n"\
+    "[hr][/hr]"\
+    "[h2]Overview[/h2]\n\n"\
+    "This is a forked and updated version of Aephiex's original Advanced Ammo Storage & Supply mod.\n"\
+    "The original mod is no longer maintained, and this version expands its functionality with additional overrides, added compatibility patches, and improved ammo logistics through sideways movement.\n\n"\
+    "[hr][/hr]"\
+    "[h2]New Features and Improvements[/h2]\n\n"\
+	"[h3]Chaingun Ammo Support[/h3]\n"\
+	"- Chaingun and chaingun magazines now accept ammo transfer from belts\n"\
+	"[h3]Tech Tree Mod Ammo Support[/h3]\n"\
+	"- Tech Tree special ammo can share belts with regular ammo!\n"\
+	"[h3]Factory auto transfer[/h3]\n"\
+	"- Storage pulls from factories behind and to the sides\n"\
+    "[h3]Compatibility with Additional Mods[/h3]\n"\
+    "- [b]More Cannons Mod:[/b] EMP and Nuke cannons now supported\n"\
+    "- [b]Star Wars Mod:[/b] Supports mini-cluster, concussion, intruder, and hex missiles\n"\
+    "- [b]Missile Mods:[/b] Compatible with Galactic Allegiance Missile Silos, Standalone Missile Silos, Jani’s Shipyard, and Advanced Missile Launcher\n\n"\
+    "[h3]New Ammo Transfer System[/h3]\n"\
+    "- Ammunition can transfer [b]left, right, or forward[/b]\n"\
+    "[h3]Improved Storage Durability[/h3]\n"\
+    "- Armored storage bays provide additional protection\n"\
+    "- No roof access, maintaining balance and preventing excessive ammo stacking\n\n"\
+	 "[h3]Support Meltdown 0.30 update[/h3]\n"\
+    "- Support Meltdown\n\n"\
+    "[hr][/hr]"\
+    "[h2]Technical Details[/h2]\n\n"\
+    "This version mostly replaces and beta-maxes mod overrides per component by pushing to custom and vanilla storages\n"\
+	"- For example, HE Missile storage will attempt to transfer to HEMissileStorage__Aephiex components, CombinedMissileStorage, and MissileStorages\n"\
+    "- [b]This means most mods now needs no special updates or tweaks to be compatible[/b]\n"\
+    "[hr][/hr]"\
+    "[h2]Feedback and Support[/h2]\n\n"\
+    "For bug reports, feature requests, or contributions, visit the [b][url=https://github.com/AlexanderGracetantiono/advanced_ammo_supply_3]GitHub Repository[/url][/b].\n"\
+    "Discussion and updates will be shared there. Maybe.\n\n"
+
+StringsFolder = "strings"
+
+Actions
+[
+	// ####################################################################################################
+	// # Added Parts and Techs
+	// ####################################################################################################
+
+	{
+		Action = AddMany
+		AddTo = "<ships/terran/terran.rules>/Terran/Parts"
+		ManyToAdd
+		[			
+			&<terran/storage_ammo/storage_ammo.rules>/Part
+			&<terran/storage_missile_he/storage_missile_he.rules>/Part
+			&<terran/storage_missile_emp/storage_missile_emp.rules>/Part
+			&<terran/storage_missile_nuke/storage_missile_nuke.rules>/Part
+			&<terran/storage_mine/storage_mine.rules>/Part
+			&<terran/conveyor_carbon/conveyor_carbon.rules>/Part
+			&<terran/conveyor_coils/conveyor_coils.rules>/Part
+			&<terran/conveyor_copper/conveyor_copper.rules>/Part
+			&<terran/conveyor_diamond/conveyor_diamond.rules>/Part
+			&<terran/conveyor_enricheduranium/conveyor_enricheduranium.rules>/Part
+			&<terran/conveyor_gold/conveyor_gold.rules>/Part
+			&<terran/conveyor_hypercoils/conveyor_hypercoils.rules>/Part
+			&<terran/conveyor_hyperium/conveyor_hyperium.rules>/Part
+			&<terran/conveyor_iron/conveyor_iron.rules>/Part
+			&<terran/conveyor_processor/conveyor_processor.rules>/Part
+			&<terran/conveyor_steel/conveyor_steel.rules>/Part
+			&<terran/conveyor_sulfur/conveyor_sulfur.rules>/Part
+			&<terran/conveyor_tristeel/conveyor_tristeel.rules>/Part
+			&<terran/conveyor_tritanium/conveyor_tritanium.rules>/Part
+			&<terran/conveyor_uranium/conveyor_uranium.rules>/Part
+		]
+	}
+
+	{
+		Action = AddMany
+		AddTo = "<modes/career/techs.rules>/Techs"
+		ManyToAdd = &<techs.rules>/Techs
+	}
+
+	// ####################################################################################################
+	// # Push provides_missiles into extended tech tree HE missile factories
+	// ####################################################################################################
+	// \SteamLibrary\steamapps\workshop\content\799600\2946411143\factories\factory_dpmhe\factory_dpmheNEW.rules
+
+	{
+		Action = AddMany
+		AddTo = "<../../../workshop/content/799600/2946411143/factories/factory_dpmhe/factory_dpmheNEW.rules>/Part/TypeCategories"
+		IgnoreIfNotExisting = true
+		ManyToAdd
+		[
+			provides_missiles
+		]
+	}
+
+	// ####################################################################################################
+	// # Push ammo into chaingun magazines by adding uses_ammo to the magazine parts
+	// ####################################################################################################
+	// \SteamLibrary\steamapps\common\Cosmoteer\Data\ships\terran\chaingun_magazine\chaingun_magazine.rules
+
+	{
+		Action = AddMany
+		AddTo = "<ships/terran/chaingun_magazine/chaingun_magazine.rules>/Part/TypeCategories"
+		IgnoreIfNotExisting = true
+		ManyToAdd
+		[
+			uses_ammo
+		]
+	}
+
+	// Overrides 
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/3052680147/2_420mm/2_420mm.rules>/Part/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			EMPMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_emp
+				ResourceStorages = [ AmmoStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/3052680147/2_420mm_b/2_420mm_b.rules>/Part/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			NukeMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_nuke
+				ResourceStorages = [ AmmoStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	// ####################################################################################################
+	// # Support of More Cannons EMP and NUKE cannons
+	// ####################################################################################################
+	// \SteamLibrary\steamapps\workshop\content\799600\3052680147\2_420mm\2_420mm.rules (Emp)
+	// \SteamLibrary\steamapps\workshop\content\799600\3052680147\2_420mm_b\2_420mm_b.rules (Nuke)
+	// \SteamLibrary\steamapps\workshop\content\799600\3052680147\2_420mm_b\bullet_nuke\bullet_nuke.rules
+	// \SteamLibrary\steamapps\workshop\content\799600\3052680147\2_420mm\bullet_emp\bullet_emp.rules
+
+	// Add proper type categories to cannon parts (uses_emps and uses_nukes)
+	{
+		Action = AddMany
+		AddTo = "<../../../workshop/content/799600/3052680147/2_420mm/2_420mm.rules>/Part/TypeCategories"
+		IgnoreIfNotExisting = true
+		ManyToAdd
+		[
+			uses_emps
+		]
+	}
+	{
+		Action = AddMany
+		AddTo = "<../../../workshop/content/799600/3052680147/2_420mm_b/2_420mm_b.rules>/Part/TypeCategories"
+		IgnoreIfNotExisting = true
+		ManyToAdd
+		[
+			uses_nukes
+		]
+	}
+
+	// ####################################################################################################
+	// # Support of SW Missile Launcher
+	// ####################################################################################################
+	// \SteamLibrary\steamapps\workshop\content\799600\3119349707\ships\terran\weapons\missile_launchers\missile_launcher_small\missile_launcher_small.rules
+	// \SteamLibrary\steamapps\workshop\content\799600\3119349707\ships\terran\weapons\missile_launchers\missile_launcher_small\mini_cluster\missile_launcher_mini_cluster.rules - HE
+	// \SteamLibrary\steamapps\workshop\content\799600\3119349707\ships\terran\weapons\missile_launchers\missile_launcher_small\concussion\missile_launcher_concussion.rules - HE
+	// \SteamLibrary\steamapps\workshop\content\799600\3119349707\ships\terran\weapons\missile_launchers\missile_launcher_small\intruder\missile_launcher_intruder.rules - EMP
+	// \SteamLibrary\steamapps\workshop\content\799600\3119349707\ships\terran\weapons\missile_launchers\missile_launcher_small\hex\missile_launcher_hex.rules - Nuke
+	// ---
+	// \SteamLibrary\steamapps\workshop\content\799600\3119349707\ships\terran\weapons\missile_launchers\missile_launcher_medium\missile_launcher.rules
+	// \SteamLibrary\steamapps\workshop\content\799600\3119349707\ships\terran\weapons\missile_launchers\missile_launcher_medium\intruder\missile_launcher_intruder.rules
+	// \SteamLibrary\steamapps\workshop\content\799600\3119349707\ships\terran\weapons\missile_launchers\missile_launcher_medium\hex\missile_launcher_hex.rules
+	// \SteamLibrary\steamapps\workshop\content\799600\3119349707\ships\terran\weapons\missile_launchers\missile_launcher_medium\concussion\missile_launcher_concussion.rules
+	// \SteamLibrary\steamapps\workshop\content\799600\3119349707\ships\terran\weapons\missile_launchers\missile_launcher_medium\cluster\missile_launcher_cluster.rules
+	
+	// Add proper type categories to SW parts 
+	{
+		Action = AddMany
+		AddTo = "<../../../workshop/content/799600/3119349707/ships/terran/weapons/missile_launchers/missile_launcher_small/missile_launcher_small.rules>/Part/TypeCategories"
+		IgnoreIfNotExisting = true
+		ManyToAdd
+		[
+			uses_missiles
+			uses_emps
+			uses_nukes
+		]
+	}
+	{
+		Action = AddMany
+		AddTo = "<../../../workshop/content/799600/3119349707/ships/terran/weapons/missile_launchers/missile_launcher_medium/missile_launcher.rules>/Part/TypeCategories"
+		IgnoreIfNotExisting = true
+		ManyToAdd
+		[
+			uses_missiles
+			uses_emps
+			uses_nukes
+		]
+	}
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/3119349707/ships/terran/weapons/missile_launchers/missile_launcher_small/intruder/missile_launcher_intruder.rules>/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			EMPMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_emp
+				ResourceStorages = [CombinedMissileStorage_EMP]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+	
+	// ####################################################################################################
+	// # From here down, at least missiles and mines, is no longer needed but doesn't hurt to keep it
+	// ####################################################################################################
+	// ####################################################################################################
+	// ####################################################################################################
+
+	// ####################################################################################################
+	// # Support of Vanilla Missile Launcher
+	// ####################################################################################################
+
+	{
+		Action = Overrides
+		OverrideIn = "<ships/terran/missile_launcher/he/missile_launcher_he.rules>/Components"
+		Overrides
+		{
+			HEMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_he
+				ResourceStorages = [ CombinedMissileStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	{
+		Action = Overrides
+		OverrideIn = "<ships/terran/missile_launcher/emp/missile_launcher_emp.rules>/Components"
+		Overrides
+		{
+			EMPMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_emp
+				ResourceStorages = [ MissileStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	{
+		Action = Overrides
+		OverrideIn = "<ships/terran/missile_launcher/nuke/missile_launcher_nuke.rules>/Components"
+		Overrides
+		{
+			NukeMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_nuke
+				ResourceStorages = [ MissileStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	{
+		Action = Overrides
+		OverrideIn = "<ships/terran/missile_launcher/mine/missile_launcher_mine.rules>/Components"
+		Overrides
+		{
+			MineStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = mine_part
+				ResourceStorages = [ MineStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	// ####################################################################################################
+	// # Galactic Allegiance - Missile Silo
+	// ####################################################################################################
+
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/2879478059/Parts/Projectile_Weapons/missile_silo/missile_silo.rules>/Part/Components/HEMissilesComponents/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			HEMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_he
+				ResourceStorages = [ CombinedMissileStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	// ####################################################################################################
+	// # Standalone Missile Silo - Missile Silo
+	// ####################################################################################################
+
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/2903389522/Parts/Projectile_Weapons/missile_silo/missile_silo.rules>/Part/Components/HEMissilesComponents/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			HEMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_he
+				ResourceStorages = [ CombinedMissileStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	// ####################################################################################################
+	// # Standalone Missile Silo - Torpedo Tube
+	// ####################################################################################################
+
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/2903389522/Parts/Projectile_Weapons/missile_silo_singletube/missile_silo_singletube.rules>/Part/Components/HEMissilesComponents/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			HEMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_he
+				ResourceStorages = [ CombinedMissileStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	// ####################################################################################################
+	// # Jani's Shipyard - Nuclear Missile Silo
+	// ####################################################################################################
+
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/2880017812/Parts/Weapons/NukeSilo/nukesilo.rules>/Part/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			NukeMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_nuke
+				ResourceStorages = [ MissileStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	// ####################################################################################################
+	// # Modular Missiles
+	// ####################################################################################################
+
+	{
+		Action = AddMany
+		AddTo = "<../../../workshop/content/799600/2886141879/parts/modular_missile_loader/modular_missile_loader.rules>/Part/TypeCategories"
+		IgnoreIfNotExisting = true
+		ManyToAdd
+		[
+			uses_emps
+			uses_nukes
+		]
+	}
+
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/2886141879/parts/modular_missile_loader/modular_missile_loader.rules>/Part/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			HEMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_he
+				ResourceStorages = [ CombinedHEMissileStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+				OperationalToggle = HEMissilesToggle
+			}
+
+			EMPMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_emp
+				ResourceStorages = [ EMPMissileStorageReverseProxy ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+				OperationalToggle = EMPMissilesToggle
+			}
+
+			NukeMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_nuke
+				ResourceStorages = [ NukeMissileStorageReverseProxy ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+				OperationalToggle = NukeMissilesToggle
+			}
+		}
+	}
+
+	// ####################################################################################################
+	// # Modular Missiles - Mine Layer
+	// ####################################################################################################
+
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/2886141879/parts/modular_mine_loader/modular_mine_loader.rules>/Part/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			MineStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = mine_part
+				ResourceStorages = [ MineStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	// ####################################################################################################
+	// # Advanced Missile Launcher
+	// ####################################################################################################
+
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/2892943426/advanced_launcher/he/advanced_launcher_he.rules>/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			HEMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_he
+				ResourceStorages = [ MissileStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/2892943426/advanced_launcher/emp/advanced_launcher_emp.rules>/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			EMPMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_emp
+				ResourceStorages = [ AmmoStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/2892943426/advanced_launcher/nuke/advanced_launcher_nuke.rules>/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			NukeMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_nuke
+				ResourceStorages = [ AmmoStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	{
+		Action = Overrides
+		OverrideIn = "<../../../workshop/content/799600/2892943426/advanced_launcher/mine/advanced_launcher_mine.rules>/Components"
+		IgnoreIfNotExisting = true
+		Overrides
+		{
+			MineStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = mine_part
+				ResourceStorages = [ AmmoStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+]

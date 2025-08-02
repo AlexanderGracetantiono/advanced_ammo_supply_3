@@ -1,0 +1,90 @@
+__Name = "English"
+__DebugOnly = false
+
+Parts
+{
+	AephiexStorageAmmo = "Ammo Storage"
+	AephiexStorageAmmoIcon = &AephiexStorageAmmo
+	AephiexStorageAmmoDesc = "A designated ammo storage that is armored and more durable. It also transfers its contents to the cannon or Ammo Storage in front of it."
+
+	AephiexStorageMine = "Mine Parts Storage"
+	AephiexStorageMineIcon = &AephiexStorageMine
+	AephiexStorageMineDesc = "A designated mine parts storage that is armored and more durable. It also transfers its contents to the launcher or Mine Storage in front of it."
+
+	AephiexStorageMissileEMP = "E.M.P. Missile Parts Storage"
+	AephiexStorageMissileEMPIcon = &AephiexStorageMissileEMP
+	AephiexStorageMissileEMPDesc = "A designated E.M.P. missile parts storage that is armored and more durable. It also transfers its contents to the launcher or E.M.P. Missile Parts Storage in front of it."
+
+	AephiexStorageMissileHE = "H.E. Missile Parts Storage"
+	AephiexStorageMissileHEIcon = &AephiexStorageMissileHE
+	AephiexStorageMissileHEDesc = "A designated H.E. missile parts storage that is armored and more durable. It also transfers its contents to the launcher or H.E. Missile Parts Storage in front of it."
+
+	AephiexStorageMissileNuke = "Nuclear Missile Parts Storage"
+	AephiexStorageMissileNukeIcon = &AephiexStorageMissileNuke
+	AephiexStorageMissileNukeDesc = "A designated nuclear missile parts storage that is armored and more durable. It also transfers its contents to the launcher or nuclear Missile Parts Storage in front of it."
+
+	AephiexStorageMissileThermal = "Thermal Missile Parts Storage"
+	AephiexStorageMissileThermalIcon = &AephiexStorageMissileThermal
+	AephiexStorageMissileThermalDesc = "A designated Thermal missile parts storage that is armored and more durable. It also transfers its contents to the launcher or Thermal Missile Parts Storage in front of it."
+	
+	FemboyConveyorCarbon = "Carbon Conveyor"
+	FemboyConveyorCarbonIcon = &FemboyConveyorCarbon
+	FemboyConveyorCarbonDesc = "A designated carbon storage that is armored and more durable. It also transfers its contents to the factory or Carbon Conveyor in front of it."
+
+	FemboyConveyorCoils = "Coil Conveyor"
+	FemboyConveyorCoilsIcon = &FemboyConveyorCoils
+	FemboyConveyorCoilsDesc = "A designated coil storage that is armored and more durable. It also transfers its contents to the factory or Coil Conveyor in front of it."
+
+	FemboyConveyorCopper = "Copper Conveyor"
+	FemboyConveyorCopperIcon = &FemboyConveyorCopper
+	FemboyConveyorCopperDesc = "A designated copper storage that is armored and more durable. It also transfers its contents to the factory or Copper Conveyor in front of it."
+
+	FemboyConveyorDiamond = "Diamond Conveyor"
+	FemboyConveyorDiamondIcon = &FemboyConveyorDiamond
+	FemboyConveyorDiamondDesc = "A designated diamond storage that is armored and more durable. It also transfers its contents to the Diamond Conveyor in front of it."
+
+	FemboyConveyorEnrichedUranium = "Enriched Uranium Conveyor"
+	FemboyConveyorEnrichedUraniumIcon = &FemboyConveyorEnrichedUranium
+	FemboyConveyorEnrichedUraniumDesc = "A designated enriched uranium storage that is armored and more durable. It also transfers its contents to the Enriched Uranium Conveyor in front of it."
+
+	FemboyConveyorGold = "Gold Conveyor"
+	FemboyConveyorGoldIcon = &FemboyConveyorGold
+	FemboyConveyorGoldDesc = "A designated gold storage that is armored and more durable. It also transfers its contents to the factory or Gold Conveyor in front of it."
+
+	FemboyConveyorHypercoil = "Hypercoil Conveyor"
+	FemboyConveyorHypercoilIcon = &FemboyConveyorHypercoil
+	FemboyConveyorHypercoilDesc = "A designated hypercoil storage that is armored and more durable. It also transfers its contents to the Hypercoil Conveyor in front of it."
+
+	FemboyConveyorHyperium = "Hyperium Conveyor"
+	FemboyConveyorHyperiumIcon = &FemboyConveyorHyperium
+	FemboyConveyorHyperiumDesc = "A designated hyperium storage that is armored and more durable. It also transfers its contents to the Hyperium Conveyor in front of it."
+
+	FemboyConveyorIron = "Iron Conveyor"
+	FemboyConveyorIronIcon = &FemboyConveyorIron
+	FemboyConveyorIronDesc = "A designated iron storage that is armored and more durable. It also transfers its contents to the factory or Iron Conveyor in front of it."
+
+	FemboyConveyorProcessor = "Processor Conveyor"
+	FemboyConveyorProcessorIcon = &FemboyConveyorProcessor
+	FemboyConveyorProcessorDesc = "A designated processor storage that is armored and more durable. It also transfers its contents to the Processor Conveyor in front of it."
+
+	FemboyConveyorSteel = "Steel Conveyor"
+	FemboyConveyorSteelIcon = &FemboyConveyorSteel
+	FemboyConveyorSteelDesc = "A designated steel storage that is armored and more durable. It also transfers its contents to the Steel Conveyor in front of it."
+
+	FemboyConveyorSulfur = "Sulfur Conveyor"
+	FemboyConveyorSulfurIcon = &FemboyConveyorSulfur
+	FemboyConveyorSulfurDesc = "A designated sulfur storage that is armored and more durable. It also transfers its contents to the factory or Sulfur Conveyor in front of it."
+
+	FemboyConveyorTristeel = "Tristeel Conveyor"
+	FemboyConveyorTristeelIcon = &FemboyConveyorTristeel
+	FemboyConveyorTristeelDesc = "A designated tristeel storage that is armored and more durable. It also transfers its contents to the Tristeel Conveyor in front of it."
+
+	FemboyConveyorTritanium = "Tritanium Conveyor"
+	FemboyConveyorTritaniumIcon = &FemboyConveyorTritanium
+	FemboyConveyorTritaniumDesc = "A designated tritanium storage that is armored and more durable. It also transfers its contents to the factory or Tritanium Conveyor in front of it."
+
+	FemboyConveyorUranium = "Uranium Conveyor"
+	FemboyConveyorUraniumIcon = &FemboyConveyorUranium
+	FemboyConveyorUraniumDesc = "A designated uranium storage that is armored and more durable. It also transfers its contents to the factory or Uranium Conveyor in front of it."
+
+}

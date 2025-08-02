@@ -1,0 +1,382 @@
+Part : <./Data/ships/terran/base_part_terran.rules>/Part
+{
+	NameKey = "Parts/FemboyConveyorEnrichedUranium"
+	ID = femboy.conveyor_enricheduranium
+	IconNameKey = "Parts/FemboyConveyorEnrichedUraniumIcon"
+	DescriptionKey = "Parts/FemboyConveyorEnrichedUraniumDesc"
+	EditorGroup = "Storage"
+	SelectionTypeID = &ID
+	TypeCategories = [ storage, storageblend, uses_enricheduranium ]
+
+	Resources
+	[
+		[steel, 18]
+	]
+
+	Size = [1, 1]
+	MaxHealth = 3000
+	ExplosiveDamageAbsorption = 50%
+	ExplosiveDamageResistance = 50%
+	Flammable = false
+	InitialPenetrationResistance = 4
+	ContinuingPenetrationResistance = 4
+	Density = 1.5
+	IsRotateable = true
+
+	IsExternal = true
+	IsWalled = false
+	IsSelfDestructible = false
+	GeneratorRequiresDoor = true
+
+	ReceivableBuffs : ^/0/ReceivableBuffs []
+	IgnoreRotationForMirroredSelection = false
+
+	EditorIcon
+	{
+		Texture
+		{
+			File = "icon.png"
+			SampleMode = Linear
+		}
+		Size = [32, 32]
+	}
+
+	Components : ^/0/Components
+	{
+		EnrichedUraniumStorage
+		{
+			Type = TypedResourceGrid
+			ResourceType = enriched_uranium
+			GridRect = [0, 0, 1, 1]
+			Layer = "doodads_low"
+			SpriteInset = 8/64
+		}
+
+		ResourceConsumer
+		{
+			Type = TypedResourceGridConsumer
+			ResourceType = enriched_uranium
+			Storage = EnrichedUraniumStorage
+			DefaultPriority = &/PRIORITIES/Storage_Supply
+		}
+
+        // Forward Proxies
+		NextChainProxy
+		{
+			Type = ResourceStorageProxy
+			ResourceType = enriched_uranium
+			PartLocation = [0, -1]
+			PartCriteria
+			{
+				Category = uses_enriched_uranium
+			}
+			ComponentID = EnrichedUraniumStorage
+		}
+        NextChainProxy_Combined
+        {
+            Type = ResourceStorageProxy
+            ResourceType = enriched_uranium
+            PartLocation = [0, -1]
+            PartCriteria
+            {
+                Category = uses_enriched_uranium
+            }
+            ComponentID = CombinedEnrichedUraniumStorage
+        }
+
+        // Forward Converters
+        ResourceConverter
+        {
+            Type = ResourceConverter
+            FromStorage = EnrichedUraniumStorage
+            ToStorage = NextChainProxy
+            FromQuantity = 1
+            ToQuantity = 1
+            Interval = 0.025
+        }
+        ResourceConverter_Combined
+        {
+            Type = ResourceConverter
+            FromStorage = EnrichedUraniumStorage
+            ToStorage = NextChainProxy_Combined
+            FromQuantity = 1
+            ToQuantity = 1
+            Interval = 0.025
+        }
+
+		//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		// Pull directly from enriched uranium factories behind and to the sides
+
+		// Proxies to detect enriched uranium factories in adjacent positions
+		FactoryProxy_Left
+		{
+			Type = ResourceStorageProxy
+			ResourceType = enriched_uranium
+			PartLocation = [-1, 0] // Checks left
+			PartCriteria
+			{
+				Category = provides_enriched_uranium
+			}
+			ComponentID = EnrichedUraniumStorage
+		}
+
+		FactoryProxy_Right
+		{
+			Type = ResourceStorageProxy
+			ResourceType = enriched_uranium
+			PartLocation = [1, 0] // Checks right
+			PartCriteria
+			{
+				Category = provides_enriched_uranium
+			}
+			ComponentID = EnrichedUraniumStorage
+		}
+
+		FactoryProxy_Back
+		{
+			Type = ResourceStorageProxy
+			ResourceType = enriched_uranium
+			PartLocation = [0, 1] // Checks behind
+			PartCriteria
+			{
+				Category = provides_enriched_uranium
+			}
+			ComponentID = EnrichedUraniumStorage
+		}
+
+		// Pull enriched uranium from nearby factories
+		ResourceConverter_Factory_Left
+		{
+			Type = ResourceConverter
+			FromStorage = FactoryProxy_Left
+			ToStorage = EnrichedUraniumStorage
+			FromQuantity = 1
+			ToQuantity = 1
+			Interval = 0.025
+		}
+
+		ResourceConverter_Factory_Right
+		{
+			Type = ResourceConverter
+			FromStorage = FactoryProxy_Right
+			ToStorage = EnrichedUraniumStorage
+			FromQuantity = 1
+			ToQuantity = 1
+			Interval = 0.025
+		}
+
+		ResourceConverter_Factory_Back
+		{
+			Type = ResourceConverter
+			FromStorage = FactoryProxy_Back
+			ToStorage = EnrichedUraniumStorage
+			FromQuantity = 1
+			ToQuantity = 1
+			Interval = 0.025
+		}
+
+		// // Now the whole thing again but for dpmbullet resource types 
+  		// dpmAmmoStorage
+  		// {
+  			// Type = TypedResourceGrid
+  			// ResourceType = dpmbullet
+  			// GridRect = [0, 0, 1, 1]
+  			// Layer = "doodads_low"
+  			// SpriteInset = 8/64
+  		// }
+  
+  		// ResourceConsumer_DPM
+  		// {
+  			// Type = TypedResourceGridConsumer
+  			// ResourceType = dpmbullet
+  			// Storage = dpmAmmoStorage
+  			// DefaultPriority = &/PRIORITIES/Storage_Supply
+  		// }
+  
+  		// // Forward Proxies
+  		// NextChainProxy_DPM
+  		// {
+  			// Type = ResourceStorageProxy
+  			// ResourceType = dpmbullet
+  			// PartLocation = [0, -1]
+  			// PartCriteria
+  			// {
+  				// Category = uses_ammo
+  			// }
+  			// ComponentID = dpmAmmoStorage
+  		// }
+  		// NextChainProxy_Combined_DPM
+  		// {
+  			// Type = ResourceStorageProxy
+  			// ResourceType = dpmbullet
+  			// PartLocation = [0, -1]
+  			// PartCriteria
+  			// {
+  				// Category = uses_ammo
+  			// }
+  			// ComponentID = CombinedAmmoStorage
+  		// }
+  
+  		// // Forward Converters
+  		// ResourceConverter_DPM
+  		// {
+  			// Type = ResourceConverter
+  			// FromStorage = dpmAmmoStorage
+  			// ToStorage = NextChainProxy_DPM
+  			// FromQuantity = 5
+  			// ToQuantity = 5
+  			// Interval = 0.025
+  		// }
+  		// ResourceConverter_Combined_DPM
+  		// {
+  			// Type = ResourceConverter
+  			// FromStorage = dpmAmmoStorage
+  			// ToStorage = NextChainProxy_Combined_DPM
+  			// FromQuantity = 5
+  			// ToQuantity = 5
+  			// Interval = 0.025
+  		// }
+  
+		// // Proxies to detect ammo factories in adjacent positions
+		// FactoryProxy_Left_DPM
+		// {
+			// Type = ResourceStorageProxy
+			// ResourceType = dpmbullet
+			// PartLocation = [-1, 0] // Checks left
+			// PartCriteria
+			// {
+				// Category = provides_ammo
+			// }
+			// ComponentID = dpmAmmoStorage
+		// }
+
+		// FactoryProxy_Right_DPM
+		// {
+			// Type = ResourceStorageProxy
+			// ResourceType = dpmbullet
+			// PartLocation = [1, 0] // Checks right
+			// PartCriteria
+			// {
+				// Category = provides_ammo
+			// }
+			// ComponentID = dpmAmmoStorage
+		// }
+
+		// FactoryProxy_Back_DPM
+		// {
+			// Type = ResourceStorageProxy
+			// ResourceType = dpmbullet
+			// PartLocation = [0, 1] // Checks behind
+			// PartCriteria
+			// {
+				// Category = provides_ammo
+			// }
+			// ComponentID = dpmAmmoStorage
+		// }
+
+		// // Pull ammo from nearby factories
+		// ResourceConverter_Factory_Left_DPM
+		// {
+			// Type = ResourceConverter
+			// FromStorage = FactoryProxy_Left_DPM
+			// ToStorage = dpmAmmoStorage
+			// FromQuantity = 5
+			// ToQuantity = 5
+			// Interval = 0.025
+		// }
+
+		// ResourceConverter_Factory_Right_DPM
+		// {
+			// Type = ResourceConverter
+			// FromStorage = FactoryProxy_Right_DPM
+			// ToStorage = dpmAmmoStorage
+			// FromQuantity = 5
+			// ToQuantity = 5
+			// Interval = 0.025
+		// }
+
+		// ResourceConverter_Factory_Back_DPM
+		// {
+			// Type = ResourceConverter
+			// FromStorage = FactoryProxy_Back_DPM
+			// ToStorage = dpmAmmoStorage
+			// FromQuantity = 5
+			// ToQuantity = 5
+			// Interval = 0.025
+		// }
+		//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+		Graphics
+		{
+			Type = Graphics
+			Location = [0.5, 0.5]
+			Floor
+            {
+				//Used for the shared conveyour belt images
+                Layer = "floors"
+                DamageLevels
+                [
+                    {
+                        AnimationFiles
+                        [
+                            "../floors/floor1.png"
+                            "../floors/floor2.png"
+                            "../floors/floor3.png"
+                            "../floors/floor4.png"
+                            "../floors/floor5.png"
+                            "../floors/floor6.png"
+                            "../floors/floor7.png"
+                            "../floors/floor8.png"
+                        ]
+                        Size = [1, 1]
+                        AnimationInterval = .0333
+                        AnimationStartTime = Zero
+                    }
+                ]
+			}
+
+			OperationalDoodad
+			{
+				//used for the icon overlay
+				//this layer (-600) is between floor (-700) and storage doodads_low (-500)
+                Layer = "turrets"
+				DamageLevels
+				[
+					{
+						File = "floor.png"
+						Size = [1, 1]
+					}
+				]
+            }
+
+			Roof = &<./Data/ships/terran/corridor/corridor.rules>/Part/Components/Graphics/Roof
+		}
+
+		DestroyedEffects
+		{
+			Type = DeathEffects
+			MediaEffects = &/COMMON_EFFECTS/SmallPartDestroyedDry
+			Location = [0.5, 0.5]
+		}
+
+		Blueprints
+		{
+			Type = BlueprintSprite
+			File = "blueprints.png"
+			Size = [1, 1]
+		}
+
+		WallsBlend : <../walls/walls.rules>
+		{
+			Type = BlendSprite
+			Location = [.5, .5]
+			BlendsWithCategories = [ storageblend ]
+		}
+
+		BlueprintWalls : <../walls/blueprintwalls.rules>
+		{
+			Location = [.5, .5]
+			BlendsWithCategories = [ storageblend ]
+		}
+	}
+}
