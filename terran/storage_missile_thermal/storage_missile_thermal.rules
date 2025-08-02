@@ -6,7 +6,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	DescriptionKey = "Parts/AephiexStorageMissileThermalDesc"
 	EditorGroup = "Storage"
 	SelectionTypeID = &ID
-	TypeCategories = [ storage, storageblend, uses_thermals ]
+	TypeCategories = [ storage, storageblend, uses_launcher_parts ]
 
 	Resources
 	[
@@ -68,7 +68,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [0, -1]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = ThermalMissileStorage__Aephiex
 		}
@@ -79,7 +79,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [0, -1]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = CombinedMissileStorage
 		}
@@ -90,9 +90,9 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [0, -1]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
-			ComponentID = MissileStorage
+			ComponentID = CombinedMissileStorage
 		}
 
 		// Left Proxies
@@ -103,7 +103,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [-1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = ThermalMissileStorage__Aephiex
 		}
@@ -114,7 +114,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [-1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = CombinedMissileStorage
 		}
@@ -125,9 +125,9 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [-1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
-			ComponentID = MissileStorage
+			ComponentID = CombinedMissileStorage
 		}
 
 		// Right Proxies
@@ -138,7 +138,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = ThermalMissileStorage__Aephiex
 		}
@@ -149,7 +149,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = CombinedMissileStorage
 		}
@@ -160,9 +160,9 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
-			ComponentID = MissileStorage
+			ComponentID = CombinedMissileStorage
 		}
 
 		// Forward Converters
@@ -263,7 +263,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [-1, 0] // Checks left
 			PartCriteria
 			{
-				Category = provides_thermals
+				Category = provides_launcher_parts
 			}
 			ComponentID = MissileStorage
 		}
@@ -275,7 +275,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [1, 0] // Checks right
 			PartCriteria
 			{
-				Category = provides_thermals
+				Category = provides_launcher_parts
 			}
 			ComponentID = MissileStorage
 		}
@@ -287,7 +287,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [0, 1] // Checks behind
 			PartCriteria
 			{
-				Category = provides_thermals
+				Category = provides_launcher_parts
 			}
 			ComponentID = MissileStorage
 		}
@@ -350,7 +350,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [0, -1]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = ThermalMissileStorage_DPM
 		}
@@ -361,7 +361,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [0, -1]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = CombinedMissileStorage
 		}
@@ -372,9 +372,9 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [0, -1]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
-			ComponentID = MissileStorage
+			ComponentID = CombinedMissileStorage
 		}
 
 		// Left Proxies
@@ -385,7 +385,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [-1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = ThermalMissileStorage_DPM
 		}
@@ -396,7 +396,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [-1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = CombinedMissileStorage
 		}
@@ -407,9 +407,9 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [-1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
-			ComponentID = MissileStorage
+			ComponentID = CombinedMissileStorage
 		}
 
 		// Right Proxies
@@ -420,7 +420,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = ThermalMissileStorage_DPM
 		}
@@ -431,7 +431,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
 			ComponentID = CombinedMissileStorage
 		}
@@ -442,9 +442,9 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [1, 0]
 			PartCriteria
 			{
-				Category = uses_thermals
+				Category = uses_launcher_parts
 			}
-			ComponentID = MissileStorage
+			ComponentID = CombinedMissileStorage
 		}
 
 		// Forward Converters
@@ -542,7 +542,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [-1, 0] // Checks left
 			PartCriteria
 			{
-				Category = provides_thermals
+				Category = provides_launcher_parts
 			}
 			ComponentID = MissileStorage
 		}
@@ -554,7 +554,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [1, 0] // Checks right
 			PartCriteria
 			{
-				Category = provides_thermals
+				Category = provides_launcher_parts
 			}
 			ComponentID = MissileStorage
 		}
@@ -566,7 +566,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PartLocation = [0, 1] // Checks behind
 			PartCriteria
 			{
-				Category = provides_thermals
+				Category = provides_launcher_parts
 			}
 			ComponentID = MissileStorage
 		}

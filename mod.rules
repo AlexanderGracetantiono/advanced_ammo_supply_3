@@ -274,6 +274,37 @@ Actions
 
 	{
 		Action = Overrides
+		OverrideIn = "<ships/terran/missile_launcher/Thermal/missile_launcher_Thermal.rules>/Components"
+		Overrides
+		{
+			ThermalMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_Thermal
+				ResourceStorages = [ MissileStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+
+	{
+		Action = Overrides
+		OverrideIn = "<ships/terran/missile_launcher/thermal/missile_launcher_thermal.rules>/Components"
+		Overrides
+		{
+			ThermalMissileStorage__Aephiex
+			{
+				Type = MultiResourceStorage
+				ResourceType = missile_part_thermal
+				ResourceStorages = [ CombinedMissileStorage ]
+				AddMode = PrioritizeLeastEmptyCapacity
+				RemoveMode = PrioritizeMostEmptyCapacity
+			}
+		}
+	}
+	{
+		Action = Overrides
 		OverrideIn = "<ships/terran/missile_launcher/mine/missile_launcher_mine.rules>/Components"
 		Overrides
 		{
